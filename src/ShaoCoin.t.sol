@@ -7,15 +7,15 @@ import "./ShaoCoin.sol";
 contract ShaoCoinTest is DSTest {
     ShaoCoin coin;
 
-    function setUp() {
+    function setUp() public {
         coin = new ShaoCoin();
     }
 
-    function testFail_basic_sanity() {
+    function testFail_basic_sanity() internal pure {
         assert(false);
     }
 
-    function test_basic_sanity() {
+    function test_basic_sanity() internal pure {
         assert(true);
     }
 }
