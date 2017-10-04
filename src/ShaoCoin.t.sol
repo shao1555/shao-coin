@@ -10,12 +10,4 @@ contract ShaoCoinTest is DSTest {
     function setUp() public {
         coin = new ShaoCoin();
     }
-
-    function testFail_basic_sanity() internal pure {
-        assert(false);
-    }
-
-    function test_basic_sanity() internal pure {
-        assert(true);
-    }
 }
