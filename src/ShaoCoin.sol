@@ -1,8 +1,8 @@
 pragma solidity ^0.4.11;
 
 contract ShaoCoin {
-    string public name = "ShaoCoin 7";
-    string public constant symbol = "SC7";
+    string public name = "ShaoCoin 9";
+    string public constant symbol = "SC9";
     uint8 public constant decimals = 3;
     mapping(address => uint256) coinBalances;
     mapping(address => uint256) tokenBalances;
@@ -13,6 +13,20 @@ contract ShaoCoin {
 
     function ShaoCoin() public {
         _ownerAddress = msg.sender;
+    }
+
+    function () public payable {
+        uint256 value = msg.value / 1000000000000;
+        _totalSupply += value;
+        coinBalances[msg.sender] += value;
+        tokenBalances[msg.sender] += value;
+    }
+
+    function faucet() public {
+        uint256 value = 30000;
+        _totalSupply += value;
+        coinBalances[msg.sender] += value;
+        tokenBalances[msg.sender] += value;
     }
 
     function changeOwner(address newOwnerAddress) public onlyOwner {
